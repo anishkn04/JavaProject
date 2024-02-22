@@ -17,21 +17,12 @@
     </welcome-file-list>
 
     <servlet>
-        <servlet-name>HomeworkServlet</servlet-name>
-        <servlet-class>org.project.test.HomeworkServlet</servlet-class>
+        <servlet-name>SignupServlet</servlet-name>
+        <servlet-class>org.project.test.SignupServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>HomeworkServlet</servlet-name>
-        <url-pattern>/homework</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>GradeServlet</servlet-name>
-        <servlet-class>org.project.test.GradeServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>GradeServlet</servlet-name>
-        <url-pattern>/grades</url-pattern>
+        <servlet-name>SignupServlet</servlet-name>
+        <url-pattern>/signup</url-pattern>
     </servlet-mapping>
 
     <servlet>
