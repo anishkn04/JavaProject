@@ -49,14 +49,8 @@ nav{
 }
 
 .subjects{
-    display: none;
+    /*display: none;*/
     padding-top: 5px;
-}
-
-nav:hover .subjects{
-    display: flex;
-    position: absolute;
-    z-index: 2;
     background: #6495ED44;
     backdrop-filter: blur(5px);
 }
@@ -78,7 +72,7 @@ nav:hover (.active:not(.nav-anchors-subjects)){
     font-weight: 600;
 }
 
-.navbar > li:has(.nav-anchors:hover), .subjects > li:has(.nav-anchors-subjects:hover){
+.navbar > li:has(.nav-anchors:hover:not(.active)), .subjects > li:has(.nav-anchors-subjects:hover:not(.active)){
     border-bottom: 1px solid var(--dark);
 }
 
@@ -87,7 +81,7 @@ nav:hover (.active:not(.nav-anchors-subjects)){
 }
 
 .navbar > li:has(.active), .subjects > li:has(.active){
-    border-bottom: 1px solid var(--dark); ;
+    border-bottom: 2px solid var(--dark); ;
     backdrop-filter: brightness(90%);
 }
 
