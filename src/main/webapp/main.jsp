@@ -23,7 +23,13 @@
 <body>
 <div id="top">
     <span><span class="blue">EX-</span><span class="light-blue">Tension: </span>Engineering Notes without any Tension!</span>
-    <a id="user" href="logout.jsp"><i class="fa-solid fa-user"></i></a>
+    <div class="dropdown">
+        <i class="fa-solid fa-user"></i>
+    <div class="dropdown-content">
+        <div><%=session.getAttribute("user")%></div>
+        <a href="${pageContext.request.contextPath}/logout" id="logout-button">Logout</a>
+    </div>
+    </div>
 </div>
 <nav>
     <ul class="navbar">
@@ -103,16 +109,20 @@
             ResultSet rsChapters = psChapters.executeQuery();
             while (rsChapters.next()) {
         %>
-        <a class="container" href="<%=rsChapters.getString(5)%>">
-            <span class="container-image"><img alt="pdf-logo" src="images/pdf.svg"></span>
-            <span class="container-description"><%=rsChapters.getString(4)%></span>
+        <a class="card" href="<%=rsChapters.getString(5)%>">
+            <img alt="pdf-logo" src="images/pdf.svg" style="width:100%">
+            <div class="container">
+                <p><%=rsChapters.getString(4)%></p>
+            </div>
         </a>
         <%
             } if (role.equals("teacher")) {
         %>
-        <a class="container" href="edit.jsp?type=Links&cat=<%=cat%>&subcat=<%=subcat%>">
-            <span class="container-image"><img alt="Edit Documents" id="editIcon" src="images/editText.svg"></span>
-            <span class="container-description">Edit Documents</span>
+        <a class="card" target="_blank" href="edit.jsp?type=Links&cat=<%=cat%>&subcat=<%=subcat%>">
+            <img  alt="Edit Documents" src="images/editText.svg" style="width:100%">
+            <div class="container">
+                <p>Edit Documents</p>
+            </div>
         </a>
         <%
                     }

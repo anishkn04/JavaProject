@@ -1,15 +1,16 @@
 package org.project.test;
 
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 @WebServlet("/SignupServlet")
 public class SignupServlet extends HttpServlet {
@@ -24,7 +25,7 @@ public class SignupServlet extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession(false);
         if(session.getAttribute("user")!=null){
-            response.sendRedirect("profile.jsp");
+            response.sendRedirect("main.jsp");
         }
         String name = request.getParameter("name");
         String username = request.getParameter("username");

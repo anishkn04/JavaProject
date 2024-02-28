@@ -18,7 +18,7 @@ public class ProfileServlet extends HttpServlet {
 
             // Forward to the profile JSP
             request.setAttribute("username", username);
-            request.getRequestDispatcher("profile.jsp").forward(request, response);
+            request.getRequestDispatcher("main.jsp").forward(request, response);
         } else {
             response.sendRedirect("login.jsp");
         }

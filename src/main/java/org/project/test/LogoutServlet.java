@@ -14,11 +14,12 @@ public class LogoutServlet extends HttpServlet {
         // Invalidate the session
         HttpSession session = request.getSession(false);
         if (session != null) {
+
             session.setAttribute("user", null);
             session.invalidate();
         }
-        // Redirect to the login page
-        response.sendRedirect("login.jsp");
+        request.setAttribute("signupSuccess", "Logged out successfully!");
+        request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 }
 

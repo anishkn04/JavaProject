@@ -86,7 +86,7 @@ public class AddServlet extends HttpServlet {
             request.getRequestDispatcher("edit.jsp?type="+type).forward(request, response);
         }
         catch (Exception e){
-            request.setAttribute("editFailed", e.getClass());
+            request.setAttribute("editFailed", e.getMessage());
             request.getRequestDispatcher("edit.jsp?type="+type).forward(request, response);
         }
     }

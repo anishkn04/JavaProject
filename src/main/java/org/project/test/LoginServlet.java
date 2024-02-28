@@ -26,7 +26,7 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession(true);
         if(session.getAttribute("user")!=null){
-            response.sendRedirect("profile.jsp");
+            response.sendRedirect("main.jsp");
         }
         String username = request.getParameter("username");
         String password = request.getParameter("password");

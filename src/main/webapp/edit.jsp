@@ -39,9 +39,9 @@
     <title>Edit <%= editType %></title>
 </head>
 <body>
-<div id="top">
+<a href="${pageContext.request.contextPath}/index.jsp" id="top">
     <span><span class="blue">EX-</span><span class="light-blue">Tension: </span>Engineering Notes without any Tension!</span>
-</div>
+</a>
 <nav>
     <ul class="navbar">
         <li><a href="edit.jsp?type=Semesters" id="Semesters" class="nav-anchors">Edit Semesters</a></li>
@@ -76,9 +76,9 @@
                 Statement psSemesters = con.createStatement();
                 ResultSet rsSemesters = psSemesters.executeQuery("SELECT * FROM semesters");
                 Statement psSubjects = con.createStatement();
-                ResultSet rsSubjects = psSubjects.executeQuery("SELECT * FROM subjects");
+                ResultSet rsSubjects = psSubjects.executeQuery("SELECT * FROM subjects ORDER BY semester ASC, subject_name ASC");
                 Statement psChapters = con.createStatement();
-                ResultSet rsChapters = psChapters.executeQuery("SELECT * FROM links");
+                ResultSet rsChapters = psChapters.executeQuery("SELECT * FROM links ORDER BY chapter_name ASC");
                 if (editType.equals("Semesters")) {
                     %>
 
@@ -140,7 +140,7 @@
                     <%
                 } else if (editType.equals("Links")) {
                     %>
-                    <form action="AddServlet?type=Links" method="post">
+                    <form action="AddServlet?type=Links" method="post" onsubmit="return checkLink()" >
                         <select name="semester" id="semester" onchange="hideSubjects()"  required>
                             <%
                                 Statement psSemesters1 = con.createStatement();
@@ -164,14 +164,15 @@
                             }
                             %>
                         </select>
-<input type="text" name="chapter_name" placeholder="Enter Chapter/Link name" required>
-                        <input type="text" name="chapter_link" placeholder="Enter Link" required>
+                        <input type="text" name="chapter_name" placeholder="Enter Chapter/Link name" required>
+                        <input type="text" name="chapter_link" id="link" placeholder="Enter Link" required>
                         <script rel="script" src="${pageContext.request.contextPath}/scripts/edit.js?v=1"></script>
-                        <input type="submit" value="Add Link">
+                        <input type="submit" value="Add Link" >
                     </form>
                     <table>
                         <tr>
                             <th>File Name</th>
+                            <th>Link</th>
                             <th>Subject</th>
                             <th>Action</th>
                         </tr>
@@ -179,6 +180,7 @@
                         while (rsChapters.next()) {
                             %>
                             <tr>
+                                <td><%=rsChapters.getString("chapter_name")%></td>
                                 <td><%=rsChapters.getString("chapter_link")%></td>
                                 <td><%=rsChapters.getString("subject_name")%></td>
                                 <td><a href="DeleteServlet?type=Links&link=<%=rsChapters.getInt(1)%>">Delete</a></td>
@@ -187,6 +189,19 @@
                         }
                         %>
                     </table>
+        <script>
+            function checkLink(){
+                let link = document.querySelector('#link');
+                if(link.value.includes('http') || link.value.includes('https')){
+
+                    return true;
+                }else{
+                    alert('Please enter a valid link');
+                    return false;
+                }
+            }
+
+        </script>
             <%
 
             }
