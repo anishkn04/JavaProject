@@ -4,7 +4,7 @@
     <title>Profile</title>
 </head>
 <body>
-<h1>Welcome, <%= session.getAttribute("user") %></h1>
+<h1>Welcome, <%= session.getAttribute("user") %>, <%=session.getAttribute("role")%></h1>
 <a href="logout">Logout</a>
 </body>
 </html>

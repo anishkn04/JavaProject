@@ -1,0 +1,79 @@
+form,
+table {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+form {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+input[type="text"], input[type="number"], select {
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px #ccc;
+}
+
+select{
+    width: 50%;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #7cdc54;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px #888;
+}
+input[type="submit"]:hover {
+    background-color: #6dbd45;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2
+}
+
+.success{
+    background: #cfc;
+    color: green;
+    padding: 8px;
+    border-radius: 4px;
+    text-align: center;
+    margin: 1% 20% 0 20%;
+    align-self: center;
+    width: 90%;
+}
+
+.error{
+    background: #fcc;
+    padding: 8px;
+    border-radius: 4px;
+    color: red;
+    text-align: center;
+    margin: 1% 20% 0 20%;
+    align-self: center;
+    width: 90%;
+}

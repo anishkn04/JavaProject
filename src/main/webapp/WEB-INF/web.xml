@@ -34,13 +34,4 @@
         <url-pattern>/profile</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>MainServlet</servlet-name>
-        <servlet-class>org.project.test.MainServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>MainServlet</servlet-name>
-        <url-pattern>/main</url-pattern>
-    </servlet-mapping>
-
 </web-app>

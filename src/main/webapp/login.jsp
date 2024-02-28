@@ -9,7 +9,7 @@ if(session.getAttribute("user") != null){
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <title> Login and Registration Form in HTML & CSS | CodingLab </title>
+    <title> Login and Registration | ExTension</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/login.css?v=2">
     <link rel="icon" href="images/icon.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">

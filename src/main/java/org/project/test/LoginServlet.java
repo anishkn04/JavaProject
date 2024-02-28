@@ -24,8 +24,8 @@ public class LoginServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession(false);
-        if(session == null || session.getAttribute("user")!=null){
+        HttpSession session = request.getSession(true);
+        if(session.getAttribute("user")!=null){
             response.sendRedirect("profile.jsp");
         }
         String username = request.getParameter("username");
@@ -44,8 +44,10 @@ public class LoginServlet extends HttpServlet {
 
                 if (rs.next()) {
                     // Successful login
+                    String role = rs.getString("role");
                     request.getSession().setAttribute("user", username);
-                    response.sendRedirect("profile.jsp"); // Redirect to profile page
+                    request.getSession().setAttribute("role", role);
+                    response.sendRedirect("main.jsp");
                 } else {
                     // Invalid login
                     request.setAttribute("loginError", "Invalid username or password");
