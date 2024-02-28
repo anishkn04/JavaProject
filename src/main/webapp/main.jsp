@@ -14,7 +14,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/index.css?v=3">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/index.css?v=5">
     <link rel="icon" href="images/icon.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +26,7 @@
     <div class="dropdown">
         <i class="fa-solid fa-user"></i>
     <div class="dropdown-content">
-        <div><%=session.getAttribute("user")%></div>
+        <div style="text-align: center"><%=session.getAttribute("user")%></div>
         <a href="${pageContext.request.contextPath}/logout" id="logout-button">Logout</a>
     </div>
     </div>

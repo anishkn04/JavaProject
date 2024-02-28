@@ -44,6 +44,9 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    background: #f9f9f988;
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
 }
 
 th,
